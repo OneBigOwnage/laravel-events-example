@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Events\ActivateMemo;
 use App\Listeners\SetMemoActive;
+use App\Listeners\DistributeMemo;
 use App\Listeners\NotifyFleetOwner;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
