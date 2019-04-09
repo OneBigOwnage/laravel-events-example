@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MemoController@index');
+Route::post('/activate-memo', 'MemoController@activateMemo');
