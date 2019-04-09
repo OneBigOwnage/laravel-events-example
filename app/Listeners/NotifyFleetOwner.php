@@ -2,29 +2,18 @@
 
 namespace App\Listeners;
 
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Events\ActivateMemo;
 
 class NotifyFleetOwner
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Handle the event.
      *
      * @param  object  $event
      * @return void
      */
-    public function handle($event)
+    public function handle(ActivateMemo $event)
     {
-        //
+        dump("An email was sent to the fleet owner, to notify him of the memo: '{$event->memo->title}'");
     }
 }

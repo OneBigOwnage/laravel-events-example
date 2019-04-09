@@ -2,19 +2,24 @@
 
 namespace App\Listeners;
 
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\MemoService;
+use App\Events\ActivateMemo;
 
 class DistributeMemo
 {
+    /**
+     * @var MemoService
+     */
+    protected $memoService;
+
     /**
      * Create the event listener.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(MemoService $service)
     {
-        //
+        $this->memoService = $service;
     }
 
     /**
@@ -23,8 +28,8 @@ class DistributeMemo
      * @param  object  $event
      * @return void
      */
-    public function handle($event)
+    public function handle(ActivateMemo $event)
     {
-        //
+        $this->memoService->distributeMemo($event->memo);
     }
 }
