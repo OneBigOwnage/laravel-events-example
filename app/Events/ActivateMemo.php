@@ -2,26 +2,30 @@
 
 namespace App\Events;
 
-use Illuminate\Broadcasting\Channel;
+use App\Memo;
+
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class ActivateMemo
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
+     * @var Memo
+     */
+    public $memo;
+
+    /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Memo $memo)
     {
-        //
+        $this->memo = $memo;
     }
 
     /**
